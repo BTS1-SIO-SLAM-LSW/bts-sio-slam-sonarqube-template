@@ -17,24 +17,101 @@ Vous devez donc mettre en place un **contrôle SonarQube** et produire une **rem
 
 ---
 
-## Prérequis
-- Docker + Docker Compose  
-  **OU** GitHub Codespaces (recommandé : tout est prêt)
+## Objectif
+Ce projet permet de lancer **SonarQube** dans un environnement **GitHub Codespaces** afin d’analyser la qualité du code avec Docker.
+
+Les étudiants doivent **exécuter les commandes dans le terminal Codespaces** pour démarrer correctement SonarQube.
 
 ---
 
-## Démarrage de SonarQube
+# Ouvrir le projet dans GitHub Codespaces
 
-### Option A — GitHub Codespaces (conseillé)
-1. Cliquez sur **Code → Codespaces → Create codespace**
-2. Dans le terminal du Codespace, lancez :
+1. Aller sur le dépôt GitHub.
+2. Cliquer sur :
+
+Code → Codespaces → Create codespace on main
+
+3. Attendre que l’environnement se lance.
+
+Un terminal Linux est automatiquement ouvert.
+
+---
+
+# Vérifier que Docker fonctionne
+
+Dans le terminal, taper :
 
 ```bash
-docker compose up -d
-docker compose ps
+docker --version
+docker compose version
+---
+
+# Corriger la configuration Elasticsearch
+
+SonarQube nécessite un paramètre spécifique du noyau Linux.
+
+Dans le terminal Codespaces, taper :
+
+```bash
+sudo sysctl -w vm.max_map_count=262144
 ```
 
 
+
+
+
+Vérifier que la valeur est correcte :
+
+```bash
+cat /proc/sys/vm/max_map_count
+```
+
+La valeur doit être :
+
+262144
+
+# Lancer SonarQube avec Docker
+
+Dans le terminal :
+
+```bash
+docker compose up -d
+```
+
+# Vérifier que les conteneurs fonctionnent
+
+```bash
+docker compose ps
+```
+
+Résultat attendu :
+
+sonarqube   Up
+db          Up
+
+# Vérifier que SonarQube répond
+
+Dans le terminal :
+
+curl -I http://127.0.0.1:9000
+
+Vous devez obtenir :
+
+HTTP/1.1 200
+
+# Ouvrir SonarQube dans le navigateur
+
+Dans Codespaces :
+
+Ouvrir l’onglet Ports
+
+Repérer le port 9000
+
+Cliquer sur Open in Browser
+
+Ou utiliser l’URL fournie par Codespaces :
+
+https://<nom-du-codespace>-9000.app.github.dev
 
 ---
 
@@ -68,6 +145,17 @@ et tapez la commande suivante dans la fenêtre de terminal :
 ```bash
 export SONAR_HOST_URL="https://XXXX-9000.app.github.dev"
 ```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
