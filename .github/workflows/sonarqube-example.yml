@@ -1,0 +1,13 @@
+name: SonarQube (example)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Info
+        run: |
+          echo "Exemple. Pour CI réelle, il faut SONAR_TOKEN/SONAR_HOST_URL en secrets et un SonarQube accessible."

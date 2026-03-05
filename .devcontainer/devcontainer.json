@@ -1,0 +1,11 @@
+{
+  "name": "SonarQube TP (BTS SIO SLAM)",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "chmod +x scripts/*.sh && echo '✅ Repo prêt. Lance: docker compose up -d'",
+  "customizations": {
+    "vscode": { "extensions": [ "ms-azuretools.vscode-docker" ] }
+  }
+}

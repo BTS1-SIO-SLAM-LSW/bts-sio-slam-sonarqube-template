@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.scannerwork/
+.vscode/
+.DS_Store
