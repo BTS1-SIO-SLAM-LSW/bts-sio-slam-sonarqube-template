@@ -44,7 +44,7 @@ Dans le terminal, taper :
 ```bash
 docker --version
 docker compose version
----
+```
 
 # Corriger la configuration Elasticsearch
 
