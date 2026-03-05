@@ -8,7 +8,7 @@ Ce dépôt est un **template repository** prêt à l’emploi (local ou GitHub C
 
 ---
 
-## 1) Contexte pro (étude de cas)
+## Contexte pro (étude de cas)
 Vous êtes développeur dans une ESN. Votre équipe doit livrer une application.
 Avant la livraison, le responsable qualité / sécurité impose un contrôle automatique :
 > “Pas de livraison si le code contient des vulnérabilités ou des mauvaises pratiques graves.”
@@ -17,13 +17,13 @@ Vous devez donc mettre en place un **contrôle SonarQube** et produire une **rem
 
 ---
 
-## 2) Prérequis
+## Prérequis
 - Docker + Docker Compose  
   **OU** GitHub Codespaces (recommandé : tout est prêt)
 
 ---
 
-## 3) Démarrage de SonarQube
+## Démarrage de SonarQube
 
 ### Option A — GitHub Codespaces (conseillé)
 1. Cliquez sur **Code → Codespaces → Create codespace**
@@ -34,18 +34,11 @@ docker compose up -d
 docker compose ps
 ```
 
-3. Ouvrez le port **9000** (onglet “Ports”) puis cliquez sur l’URL.
 
-### Option B — Local
-Même commandes :
-```bash
-docker compose up -d
-```
-Puis ouvrir : http://localhost:9000
 
 ---
 
-## 4) Première connexion SonarQube
+## Première connexion SonarQube
 - URL : port 9000
 - Login : **admin**
 - Password : **admin**
@@ -53,7 +46,7 @@ Puis ouvrir : http://localhost:9000
 
 ---
 
-## 5) Créer un projet + Token
+## Créer un projet + Token
 Dans SonarQube :
 1. **Create Project** → *Manually*
 2. Project key : `bts-sio-slam-demo`
@@ -70,16 +63,13 @@ export SONAR_TOKEN="COLLEZ_VOTRE_TOKEN_ICI"
 ### IMPORTANT (Codespaces)
 L’URL SonarQube n’est pas `localhost` depuis l’extérieur.
 Dans Codespaces, copiez l’URL du port 9000 (ex: `https://xxxx-9000.app.github.dev`)
-et définissez :
+et tapez la commande suivante dans la fenêtre de terminal :
 
 ```bash
 export SONAR_HOST_URL="https://XXXX-9000.app.github.dev"
 ```
 
-En local, vous pouvez faire :
-```bash
-export SONAR_HOST_URL="http://localhost:9000"
-```
+
 
 ---
 
